@@ -1,6 +1,6 @@
-# freestix/libcybox #
+# FreeSTIX/libcybox #
 
-[![GoDoc](https://godoc.org/github.com/jordan2175/freestix/libcybox?status.png)](https://godoc.org/github.com/jordan2175/freestix/libcybox)
+[![GoDoc](https://godoc.org/github.com/freestix/libcybox?status.png)](https://godoc.org/github.com/freestix/libcybox)
 
 ## Contributing ##
 
