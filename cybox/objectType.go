@@ -10,8 +10,8 @@ package cybox
 
 import (
 	"code.google.com/p/go-uuid/uuid"
-	"github.com/jordan2175/freestix/libcybox/common"
-	"github.com/jordan2175/freestix/libcybox/defs"
+	"github.com/freestix/libcybox/common"
+	"github.com/freestix/libcybox/defs"
 )
 
 type ObjectType struct {
