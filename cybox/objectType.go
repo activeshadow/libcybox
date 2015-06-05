@@ -14,6 +14,10 @@ import (
 	"github.com/freestix/libcybox/defs"
 )
 
+// ----------------------------------------------------------------------
+// Define Message Type
+// ----------------------------------------------------------------------
+
 type ObjectType struct {
 	Id         string                `json:"id,omitempty"`
 	IdRef      string                `json:"idref,omitempty"`
@@ -21,6 +25,26 @@ type ObjectType struct {
 	VocabName  string                `json:"vocabName,omitempty"`
 	VocabType  string                `json:"vocabType,omitempty"`
 	UriObjects *common.UriObjectType `json:"uriObj,omitempty"`
+}
+
+// ----------------------------------------------------------------------
+// Top Level Cybox Objects
+// ----------------------------------------------------------------------
+
+func CreateObject(vocabName, value string) ObjectType {
+	var o ObjectType
+	o.VocabName = vocabName
+	o.VocabType = value
+	return o
+}
+
+// ----------------------------------------------------------------------
+// Common Cybox Objects
+// ----------------------------------------------------------------------
+
+func CreateUriObject() common.UriObjectType {
+	var u common.UriObjectType
+	return u
 }
 
 // ----------------------------------------------------------------------

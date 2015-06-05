@@ -13,7 +13,11 @@ import (
 	"github.com/freestix/libcybox/defs"
 )
 
+// ----------------------------------------------------------------------
+// Define Message Type
+// ----------------------------------------------------------------------
 // TODO: Finish filling out this data structure
+
 type ObservableType struct {
 	Id            string      `json:"id,omitempty"`
 	IdRef         string      `json:"idref,omitempty"`
@@ -24,25 +28,40 @@ type ObservableType struct {
 }
 
 // ----------------------------------------------------------------------
+// Create Functions
+// ----------------------------------------------------------------------
+
+func New() ObservableType {
+	obj := CreateObservable()
+	obj.CreateId()
+	return obj
+}
+
+func CreateObservable() ObservableType {
+	var obj ObservableType
+	return obj
+}
+
+// ----------------------------------------------------------------------
 // Methods
 // ----------------------------------------------------------------------
 
-func (o *ObservableType) CreateId() {
-	o.Id = defs.COMPANY + ":observable-" + uuid.New()
+func (this *ObservableType) CreateId() {
+	this.Id = defs.COMPANY + ":observable-" + uuid.New()
 }
 
-func (o *ObservableType) AddIdRef(idref string) {
-	o.IdRef = idref
+func (this *ObservableType) AddIdRef(idref string) {
+	this.IdRef = idref
 }
 
-func (o *ObservableType) SetNegate(b bool) {
-	o.Negate = b
+func (this *ObservableType) SetNegate(b bool) {
+	this.Negate = b
 }
 
-func (o *ObservableType) IncreaseSightingCount(u uint) {
-	o.SightingCount = +u
+func (this *ObservableType) IncreaseSightingCount(u uint) {
+	this.SightingCount = +u
 }
 
-func (o *ObservableType) AddObject(obj ObjectType) {
-	o.Object = &obj
+func (this *ObservableType) AddObject(obj ObjectType) {
+	this.Object = &obj
 }
