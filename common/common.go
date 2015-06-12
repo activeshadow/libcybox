@@ -4,8 +4,6 @@
 // that can be found in the LICENSE file in the root of the source
 // tree.
 
-// Version: 0.1
-
 package common
 
 // TODO: change the value to use time.Time and import time
@@ -16,10 +14,10 @@ type DateTimeWithPrecisionType struct {
 
 // Issues: Need to support ISO 8601, specifically 2015-01-15T14:16:00-07:00
 type TimeType struct {
-	StartTime    *DateTimeWithPrecisionType `json:"startTime,omitempty"`
-	EndTime      *DateTimeWithPrecisionType `json:"endTime,omitempty"`
-	ProducedTime *DateTimeWithPrecisionType `json:"producedTime,omitempty"`
-	ReceivedTime *DateTimeWithPrecisionType `json:"receivedTime,omitempty"`
+	StartTime    *DateTimeWithPrecisionType `json:"start_time,omitempty"`
+	EndTime      *DateTimeWithPrecisionType `json:"end_time,omitempty"`
+	ProducedTime *DateTimeWithPrecisionType `json:"produced_time,omitempty"`
+	ReceivedTime *DateTimeWithPrecisionType `json:"received_time,omitempty"`
 }
 
 // TODO need to finish this type
