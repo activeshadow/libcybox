@@ -33,6 +33,10 @@ type ObservableType struct {
 func New() ObservableType {
 	obj := CreateObservable()
 	obj.CreateId()
+	cyboxobj := object.NewObject()
+	prop := object.NewProperties()
+	cyboxobj.AddProperties(prop)
+	obj.AddObject(cyboxobj)
 	return obj
 }
 
@@ -63,4 +67,12 @@ func (this *ObservableType) IncreaseSightingCount(u uint) {
 
 func (this *ObservableType) AddObject(obj object.ObjectType) {
 	this.Object = &obj
+}
+
+func (this *ObservableType) GetObject() *object.ObjectType {
+	return this.Object
+}
+
+func (this *ObservableType) GetObjectProperties() *object.PropertiesType {
+	return this.Object.Properties
 }

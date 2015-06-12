@@ -16,10 +16,10 @@ import (
 // ----------------------------------------------------------------------
 
 type PropertiesType struct {
-	Id         string   `json:"id,omitempty"`
-	IdRef      string   `json:"idref,omitempty"`
-	Type       string   `json:"type,omitempty"`
-	UriObjects []string `json:"uri_objects,omitempty"`
+	Id         string          `json:"id,omitempty"`
+	IdRef      string          `json:"idref,omitempty"`
+	Type       string          `json:"type,omitempty"`
+	UriObjects []UriObjectType `json:"uri_objects,omitempty"`
 }
 
 // ----------------------------------------------------------------------
@@ -27,12 +27,12 @@ type PropertiesType struct {
 // ----------------------------------------------------------------------
 
 func NewProperties() PropertiesType {
-	obj := CreateUriObject()
+	obj := CreateCyboxPropertiesObject()
 	obj.CreateId()
 	return obj
 }
 
-func CreateUriObject() PropertiesType {
+func CreateCyboxPropertiesObject() PropertiesType {
 	var obj PropertiesType
 	return obj
 }
@@ -42,17 +42,24 @@ func CreateUriObject() PropertiesType {
 // ----------------------------------------------------------------------
 
 func (this *PropertiesType) CreateId() {
-	this.Id = defs.COMPANY + ":UriObject-" + uuid.New()
+	this.Id = defs.COMPANY + ":object-" + uuid.New()
 }
 
 func (this *PropertiesType) AddType(t string) {
 	this.Type = t
 }
 
-func (this *PropertiesType) AddUriObject(value string) {
+func (this *PropertiesType) AddEqualsUriValue(uri string) {
+	uriobj := NewUriObject()
+	uriobj.SetConditionEquals()
+	uriobj.AddValue(uri)
+	this.AddUriObject(uriobj)
+}
+
+func (this *PropertiesType) AddUriObject(obj UriObjectType) {
 	if this.UriObjects == nil {
-		a := make([]string, 0)
+		a := make([]UriObjectType, 0)
 		this.UriObjects = a
 	}
-	this.UriObjects = append(this.UriObjects, value)
+	this.UriObjects = append(this.UriObjects, obj)
 }
