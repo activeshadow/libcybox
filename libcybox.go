@@ -7,3 +7,7 @@
 package libcybox
 
 // Version = "0.1.1"
+
+var (
+	Name = "example"
+)

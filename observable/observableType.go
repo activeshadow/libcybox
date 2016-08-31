@@ -7,7 +7,7 @@
 package observable
 
 import (
-	"github.com/freestix/libcybox/defs"
+	"github.com/freestix/libcybox"
 	"github.com/freestix/libcybox/object"
 	"github.com/pborman/uuid"
 )
@@ -50,7 +50,7 @@ func CreateObservable() ObservableType {
 // ----------------------------------------------------------------------
 
 func (this *ObservableType) CreateId() {
-	this.Id = defs.COMPANY + ":observable-" + uuid.New()
+	this.Id = libcybox.Name + ":observable-" + uuid.New()
 }
 
 func (this *ObservableType) AddIdRef(idref string) {
