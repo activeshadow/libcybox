@@ -9,5 +9,6 @@ package libcybox
 // Version = "0.1.1"
 
 var (
-	Name = "example"
+	Company   = "example"
+	CompanyNS = "http://example.com"
 )

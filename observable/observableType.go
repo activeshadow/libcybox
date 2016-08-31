@@ -50,7 +50,7 @@ func CreateObservable() ObservableType {
 // ----------------------------------------------------------------------
 
 func (this *ObservableType) CreateId() {
-	this.Id = libcybox.Name + ":observable-" + uuid.New()
+	this.Id = libcybox.Company + ":observable-" + uuid.New()
 }
 
 func (this *ObservableType) AddIdRef(idref string) {

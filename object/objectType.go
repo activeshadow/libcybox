@@ -7,7 +7,7 @@
 package object
 
 import (
-	"github.com/freestix/libcybox/defs"
+	"github.com/freestix/libcybox"
 	"github.com/pborman/uuid"
 )
 
@@ -42,7 +42,7 @@ func CreateObject() ObjectType {
 // ----------------------------------------------------------------------
 
 func (this *ObjectType) CreateId() {
-	this.Id = defs.COMPANY + ":cyboxObject-" + uuid.New()
+	this.Id = libcybox.Company + ":cyboxObject-" + uuid.New()
 }
 
 func (this *ObjectType) AddProperties(u PropertiesType) {
