@@ -7,9 +7,9 @@
 package observable
 
 import (
-	"code.google.com/p/go-uuid/uuid"
 	"github.com/freestix/libcybox/defs"
 	"github.com/freestix/libcybox/object"
+	"github.com/pborman/uuid"
 )
 
 // ----------------------------------------------------------------------
