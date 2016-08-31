@@ -16,10 +16,12 @@ import (
 // ----------------------------------------------------------------------
 
 type PropertiesType struct {
-	Id         string          `json:"id,omitempty"`
-	IdRef      string          `json:"idref,omitempty"`
-	Type       string          `json:"type,omitempty"`
-	UriObjects []UriObjectType `json:"uri_objects,omitempty"`
+	Id             string              `json:"id,omitempty"`
+	IdRef          string              `json:"idref,omitempty"`
+	Type           string              `json:"type,omitempty"`
+	Category       string              `json:"category,omitempty"`
+	UriObjects     []UriObjectType     `json:"uri_objects,omitempty"`
+	AddressObjects []AddressObjectType `json:"address_objects,omitempty"`
 }
 
 // ----------------------------------------------------------------------
@@ -49,11 +51,22 @@ func (this *PropertiesType) AddType(t string) {
 	this.Type = t
 }
 
+func (this *PropertiesType) AddCategory(c string) {
+	this.Category = c
+}
+
 func (this *PropertiesType) AddEqualsUriValue(uri string) {
 	uriobj := NewUriObject()
 	uriobj.SetConditionEquals()
 	uriobj.AddValue(uri)
 	this.AddUriObject(uriobj)
+}
+
+func (this *PropertiesType) AddEqualsAddressValue(addr string) {
+	addrobj := NewAddressObject()
+	addrobj.SetConditionEquals()
+	addrobj.AddValue(addr)
+	this.AddAddressObject(addrobj)
 }
 
 func (this *PropertiesType) AddUriObject(obj UriObjectType) {
@@ -62,4 +75,14 @@ func (this *PropertiesType) AddUriObject(obj UriObjectType) {
 		this.UriObjects = a
 	}
 	this.UriObjects = append(this.UriObjects, obj)
+}
+
+func (this *PropertiesType) AddAddressObject(obj AddressObjectType) {
+	// Don't really need this... append will make the slice for you if it
+	// doesn't already exist.
+	if this.AddressObjects == nil {
+		a := make([]AddressObjectType, 0)
+		this.AddressObjects = a
+	}
+	this.AddressObjects = append(this.AddressObjects, obj)
 }
