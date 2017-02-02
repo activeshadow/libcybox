@@ -7,8 +7,8 @@
 package object
 
 import (
+	"github.com/activeshadow/libcybox"
 	"github.com/pborman/uuid"
-	"github.com/activeshadow/libcybox/defs"
 )
 
 // ----------------------------------------------------------------------
@@ -42,7 +42,7 @@ func CreateCyboxPropertiesObject() PropertiesType {
 // ----------------------------------------------------------------------
 
 func (this *PropertiesType) CreateId() {
-	this.Id = defs.COMPANY + ":object-" + uuid.New()
+	this.Id = libcybox.Company + ":object-" + uuid.New()
 }
 
 func (this *PropertiesType) AddType(t string) {

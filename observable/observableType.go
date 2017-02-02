@@ -7,9 +7,9 @@
 package observable
 
 import (
-	"github.com/pborman/uuid"
-	"github.com/activeshadow/libcybox/defs"
+	"github.com/activeshadow/libcybox"
 	"github.com/activeshadow/libcybox/object"
+	"github.com/pborman/uuid"
 )
 
 // ----------------------------------------------------------------------
@@ -50,7 +50,7 @@ func CreateObservable() ObservableType {
 // ----------------------------------------------------------------------
 
 func (this *ObservableType) CreateId() {
-	this.Id = defs.COMPANY + ":observable-" + uuid.New()
+	this.Id = libcybox.Company + ":observable-" + uuid.New()
 }
 
 func (this *ObservableType) AddIdRef(idref string) {
