@@ -7,8 +7,8 @@
 package object
 
 import (
-	"code.google.com/p/go-uuid/uuid"
-	"github.com/freestix/libcybox/defs"
+	"github.com/pborman/uuid"
+	"github.com/activeshadow/libcybox/defs"
 )
 
 // ----------------------------------------------------------------------
